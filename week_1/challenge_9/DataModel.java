@@ -8,7 +8,6 @@ public class DataModel {
     private Reason reason;
     private Department department;
     private LocalDate date;
-
     public DataModel(String firstName, String lastName, Reason reason, String department, LocalDate date) {
         this.firstName = firstName;
         this.lastName = lastName;
@@ -16,7 +15,6 @@ public class DataModel {
         this.department = Department.fromString(department);
         this.date = date;
     }
-
     public String getFirstName() {
         return firstName;
     }
@@ -40,7 +38,6 @@ public class DataModel {
     public void setReason(Reason reason) {
         this.reason = reason;
     }
-
     public Department getDepartment() {
         return department;
     }
