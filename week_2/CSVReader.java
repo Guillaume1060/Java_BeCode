@@ -1,4 +1,4 @@
-package week_2.Challenges;
+package week_2;
 
 import java.io.BufferedReader;
 import java.io.FileReader;

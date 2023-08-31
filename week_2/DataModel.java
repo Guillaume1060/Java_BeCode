@@ -1,4 +1,4 @@
-package week_2.Challenges;
+package week_2;
 
 import java.time.DayOfWeek;
 import java.time.LocalDate;
