@@ -5,13 +5,13 @@
 ## INDEX
 
 1. [Measurements trans calculation](./Challenges/Challenge_1/Challenge_1.md)
-2. [Getting unique values](../Challenges/Challenge_2.md)
-3. [Filtering](../Challenges/Challenge_3.md)
-4. [More filtering and even more transforming](../Challenges/Challenge_4.md)
-5. [Filtering and sorting](../Challenges/Challenge_5.md)
-6. [Find the highest value of](../Challenges/Challenge_6.md)
-7. [Check the difference of trade in 2019 and 2020 using maps and a month (hard)](../Challenges/Challenge_7.md)
-8. [Write your own Stack implementation (hard)](../Challenges/Challenge_8.md)
+2. [Getting unique values](./Challenges/Challenge_2/Challenge_2.md)
+3. [Filtering](./Challenges/Challenge_3/Challenge_3.md)
+4. [More filtering and even more transforming](./Challenges/Challenge_4/Challenge_4.md)
+5. [Filtering and sorting](./Challenges/Challenge_5/Challenge_5.md)
+6. [Find the highest value of](./Challenges/Challenge_6/Challenge_6.md)
+7. [Check the difference of trade in 2019 and 2020 using maps and a month (hard)](./Challenges/Challenge_7/Challenge_7.md)
+8. [Write your own Stack implementation (hard)](./Challenges/Challenge_8/Challenge_8.md)
 
 
 
