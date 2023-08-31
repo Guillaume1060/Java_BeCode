@@ -4,8 +4,7 @@
 
 ## INDEX
 
-1. [Measurements trans calculation](./Challenges/Challenge_1/Challenge_1.md)
-2. [Getting unique values](./Challenge_2.md)
+2. [Getting unique values](./Challenges/Challenge_2.md)
 3. [Filtering](./Challenge_3.md)
 4. [More filtering and even more transforming](./Challenge_4.md)
 5. [Filtering and sorting](./Challenge_5.md)
