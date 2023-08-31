@@ -1,5 +1,4 @@
 package week_2;
-
 import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.time.Year;
@@ -7,12 +6,12 @@ import java.time.Year;
 public class DataModel {
 //    Direction,Year,Date,Weekday,Country,Commodity,Transport_Mode,Measure,Value,Cumulative
     private final String direction;
-    private Year year;
-    private LocalDate date;
-    private DayOfWeek weekDay;
-    private String country;
-    private String commodity;
-    private String transportMode;
+    private final Year year;
+    private final LocalDate date;
+    private final DayOfWeek weekDay;
+    private final String country;
+    private final String commodity;
+    private final String transportMode;
     private String measure;
     private Long value;
     private Long cumulative;
@@ -34,16 +33,8 @@ public class DataModel {
         return direction;
     }
 
-    public Year getYear() {
-        return year;
-    }
-
     public LocalDate getDate() {
         return date;
-    }
-
-    public DayOfWeek getWeekDay() {
-        return weekDay;
     }
 
     public String getCountry() {
@@ -62,17 +53,10 @@ public class DataModel {
         return measure;
     }
 
-    public Long getValue() {
-        return value;
-    }
-
     public void setCumulative(Long cumulative) {
         this.cumulative = cumulative;
     }
 
-    public void setValue(Long value) {
-        this.value = value;
-    }
 
     public Long getCumulative() {
         return cumulative;
