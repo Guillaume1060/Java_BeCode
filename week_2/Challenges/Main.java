@@ -2,7 +2,7 @@ package week_2.Challenges;
 
 public class Main {
     public static void main(String[] args) {
-        String csvFilePath = "week_2/Challenges/covid_and_trade.csv";
+        String csvFilePath = "week_2/covid_and_trade.csv";
         CSVReader csvReader = new CSVReader(csvFilePath);
         // Making dataList
 //        List<DataModel> dataModelSet = csvReader.dataModelSet;
