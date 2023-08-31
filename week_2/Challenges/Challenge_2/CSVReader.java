@@ -5,12 +5,11 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.time.DayOfWeek;
 import java.time.LocalDate;
+import java.time.Month;
 import java.time.Year;
 import java.time.format.DateTimeFormatter;
-import java.util.Comparator;
-import java.util.HashSet;
-import java.util.LinkedList;
-import java.util.List;
+import java.util.*;
+import java.util.stream.Collectors;
 
 
 public class CSVReader {
@@ -98,5 +97,20 @@ public class CSVReader {
         System.out.println(max);
     }
 
+    public void valuesPerMonth(int year) {
+        Map<Month, Long> valuesPerMonth = dataModelSet.stream()
+                .filter(line -> line.getDirection().equals("Exports")
+                        && line.getCountry().equals("European Union (27)")
+                        && line.getYear().getValue() == year)
+                .collect(Collectors.groupingBy(
+                        data -> data.getDate().getMonth(),
+                        Collectors.summingLong(DataModel::getValue)
+                ));
 
+        System.out.println("--->> YEAR " + year + " <<---");
+        valuesPerMonth.entrySet().stream()
+                .sorted(Map.Entry.comparingByKey())
+                .forEach(entry -> System.out.println(entry.getKey() + "-> " + entry.getValue()));
+
+    }
 }

@@ -23,7 +23,9 @@ public class Main {
         // Challenge 6. Finding the highest value of
 //        csvReader.printHighestValue();
 
-        // Challenge 7.
+        // Challenge 7. Check the difference of trade in 2019 and 2020 using maps and a month. (hard challenge)
+        csvReader.valuesPerMonth(2019);
+        csvReader.valuesPerMonth(2020);
 
     }
 }
