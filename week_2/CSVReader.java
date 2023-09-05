@@ -15,6 +15,7 @@ import java.util.stream.Collectors;
 public class CSVReader {
     public List<DataModel> dataModelSet = new LinkedList<>();
     public HashSet<String>[] uniqueValuesPerColumn = new HashSet[10];
+    public HashSet<String>[] overviewValuesPerColumn = new HashSet[5];
 
     public CSVReader(String filePath) {
         try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
@@ -25,6 +26,9 @@ public class CSVReader {
             // Generating HashSet
             for (int i = 0; i < uniqueValuesPerColumn.length; i++) {
                 uniqueValuesPerColumn[i] = new HashSet<>();
+            }
+            for (int i = 0; i < overviewValuesPerColumn.length; i++) {
+                overviewValuesPerColumn[i] = new HashSet<>();
             }
 
             while ((line = reader.readLine()) != null) {
@@ -50,8 +54,17 @@ public class CSVReader {
         return new DataModel(arr[0], Year.of(Integer.parseInt(arr[1])), LocalDate.parse(arr[2], DateTimeFormatter.ofPattern("dd/MM/yyyy")), DayOfWeek.valueOf(arr[3].toUpperCase()), arr[4], arr[5], arr[6], arr[7], Long.parseLong(arr[8]), Long.parseLong(arr[9]));
     }
 
+    public List<DataModel> getDataModelSet() {
+        return dataModelSet;
+    }
+
     public void printUniqueValues() {
         for (int i = 0; i < uniqueValuesPerColumn.length; i++) {
+            System.out.println("Column " + (i + 1) + " unique values: " + uniqueValuesPerColumn[i]);
+        }
+    }
+    public void printOverview() {
+        for (int i = 0; i < overviewValuesPerColumn.length; i++) {
             System.out.println("Column " + (i + 1) + " unique values: " + uniqueValuesPerColumn[i]);
         }
     }

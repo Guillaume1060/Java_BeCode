@@ -7,15 +7,16 @@ import java.time.Month;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-public class Monthly_total implements Command {
+public class Yearly_total implements Command {
 
-        String name = "monthly_total";
-        String smallDescription = """
-                returns the sum of both the export and import for a specified month of a specified year.""";
-        String fullExplanation = """
-                returns the sum of both the export and import for a specified month of a specified year.
-                """;
-    public Monthly_total() {
+    String name = "monthly_total";
+    String smallDescription = """
+            returns the sum of both the export and import for a specified month of a specified year.""";
+    String fullExplanation = """
+            returns the sum of both the export and import for a specified month of a specified year.
+            """;
+
+    public Yearly_total() {
     }
 
     @Override

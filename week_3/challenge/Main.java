@@ -10,17 +10,8 @@ import java.util.stream.Stream;
 
 public class Main {
     public static void main(String[] args) {
-        String csvFilePath = "week_3/assets/covid_and_trade.csv";
-        CSVReader csvReader = new CSVReader(csvFilePath);
-        Stream<DataModel> usedData = csvReader.dataModelSet
-                .stream()
-                .filter(data -> data.getYear().getValue() == 2021
-                        && data.getDate().getMonth() == Month.JULY);
-
-        Map<String, Command> commandManager = new CommandManager().getCommands();
-        for (String data : commandManager.keySet()) {
-            System.out.println(data);
-        }
+        ConsoleInputManager consoleInputManager = new ConsoleInputManager();
+        consoleInputManager.startProgram();
     }
 
 

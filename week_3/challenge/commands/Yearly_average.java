@@ -7,7 +7,7 @@ import java.time.Month;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-public class Monthly_total implements Command {
+public class Yearly_average implements Command {
 
         String name = "monthly_total";
         String smallDescription = """
@@ -15,7 +15,7 @@ public class Monthly_total implements Command {
         String fullExplanation = """
                 returns the sum of both the export and import for a specified month of a specified year.
                 """;
-    public Monthly_total() {
+    public Yearly_average() {
     }
 
     @Override
