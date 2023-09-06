@@ -9,11 +9,11 @@ import java.util.stream.Collectors;
 
 public class Monthly_average implements Command {
 
-        String name = "monthly_total";
+        String name = "monthly_average";
         String smallDescription = """
-                returns the sum of both the export and import for a specified month of a specified year.""";
+                returns the average of both the export and the import of a specified month of a specified year.""";
         String fullExplanation = """
-                returns the sum of both the export and import for a specified month of a specified year.
+                returns the average of both the export and the import of a specified month of a specified year.
                 """;
     public Monthly_average() {
     }
@@ -41,9 +41,9 @@ public class Monthly_average implements Command {
                         data -> data.getDate().getMonth(),
                         Collectors.summingLong(DataModel::getValue)));
 
-        System.out.println("--->> YEAR " + year + " <<---");
+        System.out.println("--->> AVERAGE JULY, YEAR " + year + " <<---");
         values.entrySet().stream()
                 .sorted(Map.Entry.comparingByKey())
-                .forEach(entry -> System.out.println(entry.getKey() + "-> " + entry.getValue()));
+                .forEach(entry -> System.out.println(entry.getKey() + "-> " + entry.getValue()/31));
     }
 }

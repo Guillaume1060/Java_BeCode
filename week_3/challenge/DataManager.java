@@ -16,4 +16,12 @@ public class DataManager {
     public static void getOverview() {
         csvReader.printOverview();
     }
+
+    public static void valuesPerMonth(String year) {
+        csvReader.valuesPerMonth(Integer.parseInt(year));
+    }
+
+    public static void valuesPerMonthAverage(String year) {
+        csvReader.valuesPerMonthAverage(Integer.parseInt(year));
+    }
 }

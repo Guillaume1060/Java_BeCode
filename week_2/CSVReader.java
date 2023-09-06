@@ -15,7 +15,7 @@ import java.util.stream.Collectors;
 public class CSVReader {
     public List<DataModel> dataModelSet = new LinkedList<>();
     public HashSet<String>[] uniqueValuesPerColumn = new HashSet[10];
-    public HashSet<String>[] overviewValuesPerColumn = new HashSet[5];
+    public HashSet<String>[] overviewValuesPerColumn = new HashSet[8];
 
     public CSVReader(String filePath) {
         try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
@@ -49,6 +49,27 @@ public class CSVReader {
         }
     }
 
+    private static int getDaysPerMonth(int month, int year) {
+        switch (month) {
+            case 1, 3, 5, 7, 8, 10, 12 -> {
+                return 31;
+            }
+            case 4, 6, 9, 11 -> {
+                return 30;
+            }
+            case 2 -> {
+                if ((year % 4 == 0 && year % 100 != 0) || (year % 400 == 0)) {
+                    return 29;
+                } else {
+                    return 28;
+                }
+            }
+            default -> {
+                return -1;
+            }
+        }
+    }
+
     private DataModel createData(String data) {
         String[] arr = data.split("(?!\\B\"[^\"]*),(?![^\"]*\"\\B)");
         return new DataModel(arr[0], Year.of(Integer.parseInt(arr[1])), LocalDate.parse(arr[2], DateTimeFormatter.ofPattern("dd/MM/yyyy")), DayOfWeek.valueOf(arr[3].toUpperCase()), arr[4], arr[5], arr[6], arr[7], Long.parseLong(arr[8]), Long.parseLong(arr[9]));
@@ -64,8 +85,9 @@ public class CSVReader {
         }
     }
     public void printOverview() {
-        for (int i = 0; i < overviewValuesPerColumn.length; i++) {
-            System.out.println("Column " + (i + 1) + " unique values: " + uniqueValuesPerColumn[i]);
+        for (int i = 1; i < overviewValuesPerColumn.length; i++) {
+            if (i==2 || i==3) continue;
+            System.out.println("Column " + (i) + " unique values: " + uniqueValuesPerColumn[i]);
         }
     }
 
@@ -112,8 +134,8 @@ public class CSVReader {
 
     public void valuesPerMonth(int year) {
         Map<Month, Long> valuesPerMonth = dataModelSet.stream()
-                .filter(line -> line.getDirection().equals("Exports")
-                        && line.getCountry().equals("European Union (27)")
+                .filter(line -> !line.getDirection().equals("Reimports")
+//                        && line.getCountry().equals("European Union (27)")
                         && line.getYear().getValue() == year)
                 .collect(Collectors.groupingBy(
                         data -> data.getDate().getMonth(),
@@ -124,6 +146,23 @@ public class CSVReader {
         valuesPerMonth.entrySet().stream()
                 .sorted(Map.Entry.comparingByKey())
                 .forEach(entry -> System.out.println(entry.getKey() + "-> " + entry.getValue()));
+
+    }
+
+    public void valuesPerMonthAverage(int year) {
+        Map<Month, Long> valuesPerMonth = dataModelSet.stream()
+                .filter(line -> !line.getDirection().equals("Reimports")
+//                        && line.getCountry().equals("European Union (27)")
+                        && line.getYear().getValue() == year)
+                .collect(Collectors.groupingBy(
+                        data -> data.getDate().getMonth(),
+                        Collectors.summingLong(DataModel::getValue)
+                ));
+
+        System.out.println("--->> YEAR " + year + " <<---");
+        valuesPerMonth.entrySet().stream()
+                .sorted(Map.Entry.comparingByKey())
+                .forEach(entry -> System.out.println(entry.getKey() + "-> " + entry.getValue()/getDaysPerMonth(entry.getKey().getValue(),year)));
 
     }
 }

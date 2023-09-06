@@ -30,13 +30,15 @@ public class CommandManager {
         Monthly_total monthly_total = new Monthly_total();
         registerCommand("MONTHLY_TOTAL",monthly_total);
         Monthly_average monthly_average = new Monthly_average();
-        registerCommand("MONTHLY_AVERAGE",monthly_total);
+        registerCommand("MONTHLY_AVERAGE",monthly_average);
         Yearly_total yearly_total = new Yearly_total();
         registerCommand("YEARLY_TOTAL",yearly_total);
         Yearly_average yearly_average = new Yearly_average();
         registerCommand("YEARLY_AVERAGE",yearly_average);
         Overview overview = new Overview();
         registerCommand("OVERVIEW",overview);
+        Quit quit = new Quit();
+        registerCommand("QUIT",quit);
         return commandMap;
     }
 }
