@@ -5,15 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c2d1fa2a-6237-4bc6-9e69-de1c17c9eb98" name="Changes" comment="CommandWork">
-      <change afterPath="$PROJECT_DIR$/week_3/challenge/commands/Quit.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/week_2/CSVReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/week_2/CSVReader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/week_3/challenge/CommandManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/week_3/challenge/CommandManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/week_3/challenge/ConsoleInputManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/week_3/challenge/ConsoleInputManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/week_3/challenge/DataManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/week_3/challenge/DataManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/week_3/challenge/commands/Monthly_average.java" beforeDir="false" afterPath="$PROJECT_DIR$/week_3/challenge/commands/Monthly_average.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/week_3/challenge/commands/Yearly_average.java" beforeDir="false" afterPath="$PROJECT_DIR$/week_3/challenge/commands/Yearly_average.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/week_3/challenge/commands/Yearly_total.java" beforeDir="false" afterPath="$PROJECT_DIR$/week_3/challenge/commands/Yearly_total.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,6 +28,19 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="mock:///Dummy.txt" root0="SKIP_INSPECTION" />
   </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="$PROJECT_DIR$/../env/maven/apache-maven-3.9.4" />
+      </MavenGeneralSettings>
+    </option>
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="downloadDocsAutomatically" value="true" />
+        <option name="downloadSourcesAutomatically" value="true" />
+      </MavenImportingSettings>
+    </option>
+  </component>
   <component name="ProjectId" id="2Tc073zQDEZszVjr3McaEYQarYz" />
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
@@ -44,20 +49,20 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;17&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/guitc/OneDrive/Bureau/Code/Java/JAVA_Udemy/IntelliJ_code/Game_Console_Challenge&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.appearance&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "jdk.selected.JAVA_MODULE": "17",
+    "last_opened_file_path": "C:/Users/guitc/OneDrive/Bureau/Code/Java/JAVA_Becode/week_3/maven/my-app",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "MavenSettings"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\guitc\OneDrive\Bureau\Code\Java\JAVA_Becode\week_2\Challenges\Challenge_2" />
