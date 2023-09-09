@@ -6,8 +6,7 @@
     <groupId>org.exemple.demo</groupId>
     <version>1.0-SNAPSHOT</version>
   </parent>
-
-  <groupId>org</groupId>
+<!--  <groupId>org.exemple.demo</groupId>-->
   <artifactId>ticket-webapp</artifactId>
   <version>1.0-SNAPSHOT</version>
   <packaging>war</packaging>
@@ -20,6 +19,13 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.compiler.source>1.7</maven.compiler.source>
     <maven.compiler.target>1.7</maven.compiler.target>
+    <!-- Le nom "public" de l'application -->
+    <application.name>TicketTac</application.name>
+    <!-- Le format à utiliser pour afficher la date du build -->
+    <maven.build.timestamp.format>dd/MM/yyyy</maven.build.timestamp.format>
+    <!-- Propriété servant à contourner le bug du non remplacement
+         de la propriété maven.build.timestamp lors du filtrage des ressources -->
+    <buildTimestamp>${maven.build.timestamp}</buildTimestamp>
   </properties>
 
   <!-- =============================================================== -->
@@ -61,8 +67,99 @@
     </dependency>
   </dependencies>
 
+  <!-- =============================================================== -->
+  <!-- Profils -->
+  <!-- =============================================================== -->
+  <profiles>
+    <!-- Profil pour l'environnement de développement -->
+    <profile>
+      <id>target-dev</id>
+    </profile>
+    <!-- Profil pour l'environnement de test -->
+    <profile>
+      <id>target-test</id>
+    </profile>
+    <!-- Profil pour l'environnement de production -->
+    <profile>
+      <id>target-prod</id>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-enforcer-plugin</artifactId>
+            <executions>
+              <execution>
+                <id>enforce-target-prod-no-snapshot</id>
+                <phase>validate</phase>
+                <goals>
+                  <goal>enforce</goal>
+                </goals>
+                <configuration>
+                  <rules>
+                    <!-- Le projet et son parent ne doivent pas être en SNAPSHOT -->
+                    <requireReleaseVersion />
+                    <!-- Aucune dépendance ne doit être en SNAPSHOT -->
+                    <requireReleaseDeps />
+                  </rules>
+                </configuration>
+              </execution>
+            </executions>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+  </profiles>
+
   <build>
     <finalName>ticket-webapp</finalName>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-enforcer-plugin</artifactId>
+        <executions>
+          <execution>
+            <!-- je choisis un nom unique pour définir cette exécution -->
+            <id>enforce-profile-target</id>
+            <!-- je branche l'exécution à la phase "validate" -->
+            <phase>validate</phase>
+            <!-- cette exécution lancera le goal "enforce" -->
+            <goals>
+              <goal>enforce</goal>
+            </goals>
+            <!-- La configuration du plugin propre à cette exécution -->
+            <configuration>
+              <rules>
+                <requireActiveProfile>
+                  <profiles>target-dev,target-test,target-prod</profiles>
+                  <all>false</all>
+                </requireActiveProfile>
+              </rules>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-war-plugin</artifactId>
+        <configuration>
+          <webResources>
+            <resource>
+              <filtering>true</filtering>
+              <directory>src/main/webapp</directory>
+              <includes>
+                <include>jsp/_include/header.jsp</include>
+                <include>jsp/_include/footer.jsp</include>
+                <include>jsp/about.jsp</include>
+              </includes>
+            </resource>
+          </webResources>
+        </configuration>
+      </plugin>
+    </plugins>
+
+
+
     <pluginManagement><!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->
       <plugins>
         <plugin>
